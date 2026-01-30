@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>My Private Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #0e0e11;
+      color: #ffffff;
+      font-family: system-ui, sans-serif;
+      text-align: center;
+      padding-top: 20vh;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🔐 Private Page</h1>
+<p>パスワードを入力してください</p>
+
+<input type="password" id="pw" placeholder="Password">
+<br>
+<button onclick="check()">Enter</button>
+
+<script>
+function check() {
+  const pw = document.getElementById("pw").value;
+  if (pw === "test123") {
+    window.location.href = "home.html";
+  } else {
+    alert("違います");
+  }
+}
+</script>
+
+</body>
+</html>
