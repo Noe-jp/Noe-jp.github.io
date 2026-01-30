@@ -1,43 +1,113 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>My Private Hub</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      background: #cfeee8;
-      color: #ffffff;
-      font-family: system-ui, sans-serif;
-      text-align: center;
-      padding-top: 20vh;
-    }
-    input, button {
-      padding: 10px;
-      font-size: 16px;
-      margin-top: 10px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Noe Hub</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* 全体設定 */
+body{
+  margin:0;
+  background:#cfeee8; /* アイスグリーン */
+  color:#1f3330;
+  font-family:system-ui,sans-serif;
+}
+
+/* ヘッダー */
+header{
+  padding:20px;
+  text-align:center;
+  background:#bfe6e0;
+  border-bottom:1px solid #9fd5cd;
+}
+
+/* ナビ */
+nav a{
+  margin:0 15px;
+  color:#1f3330;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+nav a:hover{
+  text-decoration:underline;
+}
+
+/* メイン */
+main{
+  max-width:900px;
+  margin:40px auto;
+  padding:20px;
+}
+
+/* カード */
+.card{
+  background:#ffffff;
+  padding:20px;
+  border-radius:12px;
+  margin-bottom:20px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* フッター */
+footer{
+  text-align:center;
+  color:#4a6b68;
+  margin:40px 0;
+  font-size:14px;
+}
+</style>
 </head>
+
 <body>
 
-<h1>🔐 Private Page</h1>
-<p>パスワードを入力してください</p>
+<header>
+  <h1>🏠 Noe Private Hub</h1>
 
-<input type="password" id="pw" placeholder="Password">
-<br>
-<button onclick="check()">Enter</button>
+  <nav>
+    <a href="live.html">🎥 配信</a>
+    <a href="#">🎨 作品</a>
+    <a href="#">📝 ログ</a>
+  </nav>
+</header>
 
-<script>
-function check() {
-  const pw = document.getElementById("pw").value;
-  if (pw === "Noerabo") {
-    window.location.href = "home.html";
-  } else {
-    alert("違います");
-  }
-}
-</script>
+<main>
+
+<!-- お知らせ -->
+<div class="card">
+  <h2>📢 お知らせ</h2>
+  <p>
+    現在サイト制作中です。<br>
+    少しずつ機能を追加していきます。
+  </p>
+</div>
+
+<!-- 作業予定 -->
+<div class="card">
+  <h2>🎯 今日の作業</h2>
+  <ul>
+    <li>サイト調整</li>
+    <li>動画編集</li>
+    <li>配信準備</li>
+  </ul>
+</div>
+
+<!-- リンク -->
+<div class="card">
+  <h2>⭐ リンク</h2>
+  <p>
+    <a href="#">YouTube</a> /
+    <a href="#">X</a> /
+    <a href="#">Discord</a>
+  </p>
+</div>
+
+</main>
+
+<footer>
+  © 2026 Noe
+</footer>
 
 </body>
 </html>
