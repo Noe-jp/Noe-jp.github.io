@@ -2,112 +2,82 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>Noe Hub</title>
+<title>Login</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* 全体設定 */
 body{
   margin:0;
-  background:#cfeee8; /* アイスグリーン */
+  background:#cfeee8;
   color:#1f3330;
   font-family:system-ui,sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
 }
 
-/* ヘッダー */
-header{
-  padding:20px;
-  text-align:center;
-  background:#bfe6e0;
-  border-bottom:1px solid #9fd5cd;
-}
-
-/* ナビ */
-nav a{
-  margin:0 15px;
-  color:#1f3330;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-nav a:hover{
-  text-decoration:underline;
-}
-
-/* メイン */
-main{
-  max-width:900px;
-  margin:40px auto;
-  padding:20px;
-}
-
-/* カード */
-.card{
+.box{
   background:#ffffff;
-  padding:20px;
+  padding:30px;
   border-radius:12px;
-  margin-bottom:20px;
-  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+  width:300px;
+  text-align:center;
+  box-shadow:0 2px 8px rgba(0,0,0,0.15);
 }
 
-/* フッター */
-footer{
-  text-align:center;
-  color:#4a6b68;
-  margin:40px 0;
-  font-size:14px;
+input{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border-radius:6px;
+  border:1px solid #aaa;
+}
+
+button{
+  width:100%;
+  padding:10px;
+  background:#7fcfc3;
+  border:none;
+  border-radius:6px;
+  color:#003333;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button:hover{
+  opacity:0.9;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <h1>🏠 Noe Private Hub</h1>
+<div class="box">
+  <h2>🔐 Login</h2>
 
-  <nav>
-    <a href="live.html">🎥 配信</a>
-    <a href="#">🎨 作品</a>
-    <a href="#">📝 ログ</a>
-  </nav>
-</header>
+  <input type="password" id="pass" placeholder="Password">
 
-<main>
+  <button onclick="login()">Enter</button>
 
-<!-- お知らせ -->
-<div class="card">
-  <h2>📢 お知らせ</h2>
-  <p>
-    現在サイト制作中です。<br>
-    少しずつ機能を追加していきます。
-  </p>
+  <p id="msg"></p>
 </div>
 
-<!-- 作業予定 -->
-<div class="card">
-  <h2>🎯 今日の作業</h2>
-  <ul>
-    <li>サイト調整</li>
-    <li>動画編集</li>
-    <li>配信準備</li>
-  </ul>
-</div>
+<script>
+function login(){
 
-<!-- リンク -->
-<div class="card">
-  <h2>⭐ リンク</h2>
-  <p>
-    <a href="#">YouTube</a> /
-    <a href="#">X</a> /
-    <a href="#">Discord</a>
-  </p>
-</div>
+  const password = "Noerabo"; // ← 今のパスワード
 
-</main>
+  const input = document.getElementById("pass").value;
 
-<footer>
-  © 2026 Noe
-</footer>
+  if(input === password){
+    location.href = "home.html";
+  }else{
+    document.getElementById("msg").textContent = "❌ パスワードが違います";
+  }
+
+}
+</script>
 
 </body>
 </html>
