@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Noe Hub | ログ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  background:#cfeee8;
+  color:#1f3330;
+  font-family:system-ui,sans-serif;
+}
+
+header{
+  padding:20px;
+  text-align:center;
+  background:#bfe6e0;
+  border-bottom:1px solid #9fd5cd;
+}
+
+nav a{
+  margin:0 15px;
+  color:#1f3330;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+nav a:hover{
+  text-decoration:underline;
+}
+
+main{
+  max-width:800px;
+  margin:40px auto;
+  padding:20px;
+}
+
+.entry{
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+  margin-bottom:20px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.date{
+  font-size:13px;
+  color:#666;
+}
+
+footer{
+  text-align:center;
+  color:#4a6b68;
+  margin:40px 0;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>📝 制作ログ</h1>
+
+  <nav>
+    <a href="home.html">🏠 Home</a>
+    <a href="live.html">🎥 配信</a>
+    <a href="works.html">🎨 作品</a>
+    <a href="log.html">📝 ログ</a>
+    <a href="#" onclick="logout()">🚪 ログアウト</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- 記事1 -->
+<div class="entry">
+  <h2>サイト制作スタート</h2>
+  <p class="date">2026-01-31</p>
+  <p>
+    GitHub Pagesでサイトを作り始めました。
+    ログイン機能を実装できて嬉しいです。
+  </p>
+</div>
+
+<!-- 記事2 -->
+<div class="entry">
+  <h2>作品ページ追加</h2>
+  <p class="date">2026-02-01</p>
+  <p>
+    ギャラリーページを作成しました。
+    これから作品を増やしていきます。
+  </p>
+</div>
+
+</main>
+
+<footer>
+© 2026 Noe
+</footer>
+
+
+<!-- 🔐 認証 -->
+<script>
+(function(){
+
+  const auth = localStorage.getItem("auth");
+  const time = localStorage.getItem("authTime");
+
+  const limit = 6 * 60 * 60 * 1000;
+
+  if(auth !== "ok" || !time){
+    location.href = "index.html";
+    return;
+  }
+
+  if(Date.now() - time > limit){
+    localStorage.clear();
+    location.href = "index.html";
+  }
+
+})();
+</script>
+
+<script>
+function logout(){
+  localStorage.clear();
+  location.href="index.html";
+}
+</script>
+
+</body>
+</html>
