@@ -68,18 +68,28 @@ button:hover{
 <script>
 function login(){
 
-  const password = "Noerabo"; // ← 今のパスワード
+  const password = "Noerabo"; // 本当のPW
 
   const input = document.getElementById("pass").value;
 
   if(input === password){
+
+    // 今の時間を保存
+    const now = Date.now();
+
+    // ログイン情報保存（6時間有効）
+    localStorage.setItem("auth","ok");
+    localStorage.setItem("authTime", now);
+
     location.href = "home.html";
+
   }else{
     document.getElementById("msg").textContent = "❌ パスワードが違います";
   }
 
 }
 </script>
+
 
 </body>
 </html>
