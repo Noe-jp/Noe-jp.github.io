@@ -32,8 +32,7 @@ input{
   margin:10px 0;
   border-radius:6px;
   border:1px solid #aaa;
-  
-  box-sizing: border-box;
+  box-sizing:border-box;
 }
 
 button{
@@ -50,6 +49,12 @@ button{
 button:hover{
   opacity:0.9;
 }
+
+#msg{
+  color:#d64545;
+  font-weight:bold;
+  min-height:20px;
+}
 </style>
 </head>
 
@@ -65,19 +70,25 @@ button:hover{
   <p id="msg"></p>
 </div>
 
+
 <script>
+
+// Enterキー対応
+document.getElementById("pass").addEventListener("keydown", function(e){
+  if(e.key === "Enter"){
+    login();
+  }
+});
+
 function login(){
 
   const password = "Noerabo"; // 本当のPW
-
   const input = document.getElementById("pass").value;
 
   if(input === password){
 
-    // 今の時間を保存
     const now = Date.now();
 
-    // ログイン情報保存（6時間有効）
     localStorage.setItem("auth","ok");
     localStorage.setItem("authTime", now);
 
@@ -88,8 +99,9 @@ function login(){
   }
 
 }
-</script>
 
+</script>
 
 </body>
 </html>
+
