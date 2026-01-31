@@ -66,6 +66,7 @@ footer{
   <h1>🏠 Noe Private Hub</h1>
 
   <nav>
+    <a href="#" onclick="logout()">🚪 ログアウト</a>
     <a href="live.html">🎥 配信</a>
     <a href="#">🎨 作品</a>
     <a href="#">📝 ログ</a>
@@ -109,6 +110,27 @@ footer{
   © 2026 Noe
 </footer>
 
+  <script>
+(function(){
+
+  const auth = localStorage.getItem("auth");
+  const time = localStorage.getItem("authTime");
+
+  const limit = 6 * 60 * 60 * 1000; // 6時間
+
+  if(auth !== "ok" || !time){
+    location.href = "index.html";
+    return;
+  }
+
+  if(Date.now() - time > limit){
+    localStorage.clear();
+    location.href = "index.html";
+  }
+
+})();
+</script>
+
 </body>
 </html>
 
@@ -127,6 +149,37 @@ footer{
 <footer>
 © 2026 Noe
 </footer>
+
+<!-- 🔐 ログインチェック -->
+<script>
+(function(){
+
+  const auth = localStorage.getItem("auth");
+  const time = localStorage.getItem("authTime");
+
+  const limit = 6 * 60 * 60 * 1000;
+
+  if(auth !== "ok" || !time){
+    location.href = "index.html";
+    return;
+  }
+
+  if(Date.now() - time > limit){
+    localStorage.clear();
+    location.href = "index.html";
+  }
+
+})();
+</script>
+
+
+<!-- 🚪 ログアウト用 -->
+<script>
+function logout(){
+  localStorage.clear();
+  location.href="index.html";
+}
+</script>
 
 </body>
 </html>
