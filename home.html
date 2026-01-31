@@ -6,15 +6,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* 全体設定 */
 body{
   margin:0;
-  background:#cfeee8; /* アイスグリーン */
+  background:#cfeee8;
   color:#1f3330;
   font-family:system-ui,sans-serif;
 }
 
-/* ヘッダー */
 header{
   padding:20px;
   text-align:center;
@@ -22,7 +20,6 @@ header{
   border-bottom:1px solid #9fd5cd;
 }
 
-/* ナビ */
 nav a{
   margin:0 15px;
   color:#1f3330;
@@ -34,14 +31,12 @@ nav a:hover{
   text-decoration:underline;
 }
 
-/* メイン */
 main{
   max-width:900px;
   margin:40px auto;
   padding:20px;
 }
 
-/* カード */
 .card{
   background:#ffffff;
   padding:20px;
@@ -50,7 +45,6 @@ main{
   box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* フッター */
 footer{
   text-align:center;
   color:#4a6b68;
@@ -75,7 +69,6 @@ footer{
 
 <main>
 
-<!-- お知らせ -->
 <div class="card">
   <h2>📢 お知らせ</h2>
   <p>
@@ -84,7 +77,6 @@ footer{
   </p>
 </div>
 
-<!-- 作業予定 -->
 <div class="card">
   <h2>🎯 今日の作業</h2>
   <ul>
@@ -94,7 +86,6 @@ footer{
   </ul>
 </div>
 
-<!-- リンク -->
 <div class="card">
   <h2>⭐ リンク</h2>
   <p>
@@ -110,45 +101,6 @@ footer{
   © 2026 Noe
 </footer>
 
-  <script>
-(function(){
-
-  const auth = localStorage.getItem("auth");
-  const time = localStorage.getItem("authTime");
-
-  const limit = 6 * 60 * 60 * 1000; // 6時間
-
-  if(auth !== "ok" || !time){
-    location.href = "index.html";
-    return;
-  }
-
-  if(Date.now() - time > limit){
-    localStorage.clear();
-    location.href = "index.html";
-  }
-
-})();
-</script>
-
-</body>
-</html>
-
-
-<div class="card">
-<h2>⭐ 最新リンク</h2>
-<p>
-<a href="#">YouTube</a> /
-<a href="#">X</a> /
-<a href="#">Discord</a>
-</p>
-</div>
-
-</main>
-
-<footer>
-© 2026 Noe
-</footer>
 
 <!-- 🔐 ログインチェック -->
 <script>
@@ -173,7 +125,7 @@ footer{
 </script>
 
 
-<!-- 🚪 ログアウト用 -->
+<!-- 🚪 ログアウト -->
 <script>
 function logout(){
   localStorage.clear();
